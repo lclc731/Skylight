@@ -1,4 +1,5 @@
-module.exports = {
-  mongoURI:
-    "mongodb://skylight2018:skylight2018@ds251022.mlab.com:51022/skylight"
-};
+if (process.env.NODE_ENV === "production") {
+  module.exports = require("./key_prod");
+} else {
+  module.exports = require("./key_dev");
+}
