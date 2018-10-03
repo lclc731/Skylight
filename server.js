@@ -27,8 +27,6 @@ app.get("/", (req, res) => res.send("hello!!!"));
 app.use("/api/users", users);
 app.use("/api/doctors", doctors);
 
-const port = process.env.PORT || 5000;
-
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
@@ -38,5 +36,7 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`server running on port ${port}`));
